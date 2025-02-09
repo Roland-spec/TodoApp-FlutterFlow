@@ -103,8 +103,8 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                               color: FlutterFlowTheme.of(context).info,
                               size: 24.0,
                             ),
-                            onPressed: () {
-                              print('BackButton pressed ...');
+                            onPressed: () async {
+                              context.safePop();
                             },
                           ),
                           FlutterFlowIconButton(
