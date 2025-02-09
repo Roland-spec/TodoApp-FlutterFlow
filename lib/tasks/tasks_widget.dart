@@ -4,6 +4,7 @@ import '/components/add_task_widget.dart';
 import '/components/task_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'tasks_model.dart';
 export 'tasks_model.dart';
@@ -184,6 +185,31 @@ class _TasksWidgetState extends State<TasksWidget> {
                         );
                       },
                     ),
+                  ),
+                ),
+                FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('Login');
+                  },
+                  text: 'Logout',
+                  options: FFButtonOptions(
+                    width: 200.0,
+                    height: 50.0,
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: const Color(0xFF0A50EA),
+                    textStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.override(
+                              fontFamily: 'Inter Tight',
+                              letterSpacing: 0.0,
+                            ),
+                    elevation: 0.0,
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
               ].divide(const SizedBox(height: 12.0)),
