@@ -110,6 +110,23 @@ class _TasksWidgetState extends State<TasksWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        '“Monsters are real, and ghosts are real too. They live inside us, and sometimes, they win.” — Stephen King\n',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Inter',
+                              color: FlutterFlowTheme.of(context).secondary,
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
                 Text(
                   'Tasks',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
