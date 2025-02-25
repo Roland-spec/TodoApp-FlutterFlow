@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/add_task_widget.dart';
 import '/components/task_widget.dart';
@@ -116,7 +117,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
-                        '“Monsters are real, and ghosts are real too. They live inside us, and sometimes, they win.” — Stephen King\n',
+                        _model.quoteOftheDay,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).secondary,
@@ -194,6 +195,32 @@ class _TasksWidgetState extends State<TasksWidget> {
                                     'taskDoc': listViewTasksRecord,
                                   },
                                 );
+
+                                _model.apiResult = await QuoteCall.call();
+
+                                if ((_model.apiResult?.succeeded ?? true)) {
+                                  _model.quoteOftheDay =
+                                      (_model.apiResult?.bodyText ?? '');
+                                  safeSetState(() {});
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Error',
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
+                                }
+
+                                safeSetState(() {});
                               },
                               child: TaskWidget(
                                 key: Key(
