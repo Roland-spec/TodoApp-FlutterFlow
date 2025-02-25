@@ -15,6 +15,9 @@ class DetailsPageWidget extends StatefulWidget {
 
   final TasksRecord? taskDoc;
 
+  static String routeName = 'DetailsPage';
+  static String routePath = '/detailsPage';
+
   @override
   State<DetailsPageWidget> createState() => _DetailsPageWidgetState();
 }
@@ -66,13 +69,13 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 400.0,
                 ),
                 decoration: BoxDecoration(
@@ -83,9 +86,9 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                     width: 1.0,
                   ),
                 ),
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsets.all(24.0),
+                  padding: EdgeInsets.all(24.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +148,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      SizedBox(
+                      Container(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.titleBarTextController,
@@ -177,7 +180,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1.0,
                               ),
@@ -202,7 +205,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                                 ? FlutterFlowTheme.of(context).secondaryText
                                 : FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 26.0, 24.0, 26.0),
                           ),
                           style:
@@ -222,7 +225,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                      SizedBox(
+                      Container(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.detailsBarTextController,
@@ -254,7 +257,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                               borderRadius: BorderRadius.circular(24.0),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1.0,
                               ),
@@ -279,7 +282,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                                 ? FlutterFlowTheme.of(context).secondaryText
                                 : FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                            contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 26.0, 24.0, 26.0),
                           ),
                           style:
@@ -294,7 +297,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.editingMode) {
@@ -319,11 +322,11 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFF0A50EA),
+                            color: Color(0xFF0A50EA),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -341,7 +344,7 @@ class _DetailsPageWidgetState extends State<DetailsPageWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 12.0)),
+                    ].divide(SizedBox(height: 12.0)),
                   ),
                 ),
               ),

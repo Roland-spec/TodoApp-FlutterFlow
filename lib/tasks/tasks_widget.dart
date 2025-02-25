@@ -5,12 +5,16 @@ import '/components/task_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'tasks_model.dart';
 export 'tasks_model.dart';
 
 class TasksWidget extends StatefulWidget {
   const TasksWidget({super.key});
+
+  static String routeName = 'tasks';
+  static String routePath = '/tasks';
 
   @override
   State<TasksWidget> createState() => _TasksWidgetState();
@@ -81,7 +85,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                       },
                       child: Padding(
                         padding: MediaQuery.viewInsetsOf(context),
-                        child: const AddTaskWidget(),
+                        child: AddTaskWidget(),
                       ),
                     );
                   },
@@ -96,12 +100,12 @@ class _TasksWidgetState extends State<TasksWidget> {
           ),
         ),
         body: Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Container(
-            constraints: const BoxConstraints(
+            constraints: BoxConstraints(
               maxWidth: 400.0,
             ),
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -116,7 +120,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
                     child: StreamBuilder<List<TasksRecord>>(
                       stream: queryTasksRecord(
                         queryBuilder: (tasksRecord) => tasksRecord
@@ -151,7 +155,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,
                           itemCount: listViewTasksRecordList.length,
-                          separatorBuilder: (_, __) => const SizedBox(height: 12.0),
+                          separatorBuilder: (_, __) => SizedBox(height: 12.0),
                           itemBuilder: (context, listViewIndex) {
                             final listViewTasksRecord =
                                 listViewTasksRecordList[listViewIndex];
@@ -162,7 +166,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'DetailsPage',
+                                  DetailsPageWidget.routeName,
                                   queryParameters: {
                                     'taskDoc': serializeParam(
                                       listViewTasksRecord,
@@ -189,17 +193,17 @@ class _TasksWidgetState extends State<TasksWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('Login');
+                    context.pushNamed(LoginWidget.routeName);
                   },
                   text: 'Logout',
                   options: FFButtonOptions(
                     width: 200.0,
                     height: 50.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF0A50EA),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF0A50EA),
                     textStyle:
                         FlutterFlowTheme.of(context).headlineMedium.override(
                               fontFamily: 'Inter Tight',
@@ -212,7 +216,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)),
             ),
           ),
         ),
